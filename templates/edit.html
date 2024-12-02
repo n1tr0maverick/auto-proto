@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Add Autograph</h1>
+    <form method="post">
+        <select name="autograph">
+            {% for autograph in autographs %}
+            <option value="{{ autograph }}">{{ autograph }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Add Autograph">
+    </form>
+</body>
+</html>
