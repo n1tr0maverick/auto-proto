@@ -4,16 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload and Sign Image</title>
+    <style>
+        body {
+            background-image: url('sakura-background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Yu Mincho', 'Hiragino Mincho Pro', serif;
+            color: #5B3A29;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 50px;
+            color: #8B4513;
+        }
+        form {
+            background-color: rgba(255, 248, 240, 0.8);
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="file"],
+        input[type="text"] {
+            margin-top: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #FFB7C5;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #FF91A4;
+        }
+    </style>
 </head>
 <body>
     <h1>Upload an Image and Add an Autograph</h1>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <label for="file">Choose an image to upload:</label>
         <input type="file" id="file" name="file" accept="image/*" required>
-        <br><br>
         <label for="autograph">Enter the autograph text:</label>
         <input type="text" id="autograph" name="autograph" required>
-        <br><br>
         <button type="submit">Upload and Sign</button>
     </form>
 </body>
