@@ -16,20 +16,19 @@ def upload_form():
 
 @app.route('/', methods=['POST'])
 def upload_image():
-    if 'image' not in request.files or 'autograph' not in request.files:
+    if 'image' not in request.files:
         return 'No file part'
     
     image = request.files['image']
-    autograph = request.files['autograph']
     
-    if image.filename == '' or autograph.filename == '':
+    if image.filename == '':
         return 'No selected file'
 
     image_path = os.path.join(app.config['UPLOAD_FOLDER'], image.filename)
-    autograph_path = os.path.join(app.config['UPLOAD_FOLDER'], autograph.filename)
-    
     image.save(image_path)
-    autograph.save(autograph_path)
+
+    # Use default autograph
+    autograph_path = 'static/autographs/image-nobg.png'  # Make sure this file exists
 
     # Open the images
     base_image = Image.open(image_path)
